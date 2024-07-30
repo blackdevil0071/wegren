@@ -1,0 +1,62 @@
+<div class="sidebar">
+  <div class="head">Template</div>
+  <div class="preview-frame">
+    <div class="card-preview" [style.background]="selectedColor">
+      <h1 [style.fontSize]="titleStyles.fontSize" [style.fontFamily]="titleStyles.fontFamily"
+          [style.fontWeight]="titleStyles.fontWeight" [style.fontStyle]="titleStyles.fontStyle">
+        {{ newTitle }}
+      </h1>
+      <p [style.fontSize]="descriptionStyles.fontSize" [style.fontFamily]="descriptionStyles.fontFamily"
+         [style.fontWeight]="descriptionStyles.fontWeight" [style.fontStyle]="descriptionStyles.fontStyle">
+        {{ newContent }}
+      </p>
+    </div>
+  </div>
+  <div class="controls">
+    <label for="color">Change Background Color</label>
+    <div class="color-display" [style.background]="selectedColor" (click)="toggleDropdown()"></div>
+    <div *ngIf="isDropdownOpen" class="color-dropdown">
+      <div *ngFor="let color of colors" class="color-option" [style.background]="color" (click)="onColorSelect(color)"></div>
+    </div>
+  </div>
+  <div class="title-box">
+    <label for="title">Title:</label>
+    <div class="editor-controls">
+      <div class="editor-control-group">
+        <select (change)="applyFontStyle($event, 'title')">
+          <option value="">Font Style</option>
+          <option *ngFor="let style of fontStyles" [value]="style">{{ style }}</option>
+        </select>
+        <select (change)="applyFontSize($event, 'title')">
+          <option value="">Font Size</option>
+          <option *ngFor="let size of fontSizes" [value]="size">{{ size }}</option>
+        </select>
+        <button (click)="applyBold('title')">Bold</button>
+        <button (click)="applyItalic('title')">Italic</button>
+      </div>
+      <textarea [(ngModel)]="newTitle" (ngModelChange)="onTitleChange()" [style.fontSize]="titleStyles.fontSize"
+        [style.fontFamily]="titleStyles.fontFamily" [style.fontWeight]="titleStyles.fontWeight"
+        [style.fontStyle]="titleStyles.fontStyle" rows="2" placeholder="Enter title here..."></textarea>
+    </div>
+  </div>
+  <div class="description-box">
+    <label for="description">Description:</label>
+    <div class="editor-controls">
+      <div class="editor-control-group">
+        <select (change)="applyFontStyle($event, 'description')">
+          <option value="">Font Style</option>
+          <option *ngFor="let style of fontStyles" [value]="style">{{ style }}</option>
+        </select>
+        <select (change)="applyFontSize($event, 'description')">
+          <option value="">Font Size</option>
+          <option *ngFor="let size of fontSizes" [value]="size">{{ size }}</option>
+        </select>
+        <button (click)="applyBold('description')">Bold</button>
+        <button (click)="applyItalic('description')">Italic</button>
+      </div>
+      <textarea [(ngModel)]="newContent" (ngModelChange)="onContentChange()" [style.fontSize]="descriptionStyles.fontSize"
+        [style.fontFamily]="descriptionStyles.fontFamily" [style.fontWeight]="descriptionStyles.fontWeight"
+        [style.fontStyle]="descriptionStyles.fontStyle" rows="5" placeholder="Enter description here..."></textarea>
+    </div>
+  </div>
+</div>

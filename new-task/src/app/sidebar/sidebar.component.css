@@ -1,0 +1,113 @@
+.sidebar {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.head {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.controls, .title-box, .description-box, .preview-frame {
+  margin-bottom: 20px;
+}
+
+.color-display {
+  width: 10%;
+  height: 30px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.color-dropdown {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.color-option {
+  width: 30px;
+  height: 30px;
+  margin: 2px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.editor-controls {
+  display: flex;
+  flex-direction: column;
+}
+
+.editor-control-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.editor-control-group select, .editor-control-group button {
+  flex: 1;
+  margin-right: 5px;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+}
+
+.card-preview {
+  padding: 20px;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    max-width: none;
+  }
+
+  .color-display {
+    max-width: none;
+  }
+
+  .editor-control-group {
+    flex-direction: column;
+  }
+
+  .editor-control-group select, .editor-control-group button {
+    min-width: 100%;
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .head {
+    font-size: 1rem;
+  }
+
+  .controls, .title-box, .description-box {
+    margin-bottom: 15px;
+  }
+
+  .color-display {
+    height: 25px;
+  }
+
+  .card-preview {
+    height: 40vh;
+  }
+}

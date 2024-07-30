@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="card" [style.background]="cardColor">
+    <h1>{{ title }}</h1>
+    <p>{{ content }}</p>
+  </div>
+  <app-sidebar
+    (titleChange)="updateContent()"
+    (contentChange)="updateContent()"
+    (colorChange)="onColorChange($event)"
+  ></app-sidebar>
+</div>
